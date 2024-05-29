@@ -9,90 +9,56 @@
 To test the api routes in Postman, use can use this endpoints
 
 ```sh
-Base Url: https://book-easy-server.vercel.app/api
+Base Url: https://books-api-chi.vercel.app/api/books
 ```
 
 **For all requests set the Content-Type in header as application/json and send data in json format**
 
-1. Authentication Rotes
+## CRUD Operations
 
-   These routes helps to login and register user to the website
+ - **To Get All Books**
 
-- **Register**
+ Method: **GET**
+
+ Route:  https://books-api-chi.vercel.app/api/books
+
+It will fetches all the books.
+
+- **To Create a New Book**
 
 Method: **POST**
 
-      Route: /auth/register
+ Route: https://books-api-chi.vercel.app/api/books
+
+It will add new book to existing books.
 
 example data {
-"name":"dummy",
-"email": "dummy@gmail.com",
-"password": "passwordummy"}
+"title":"Wings of fire",
+"author": "APJ Abdul Kalam",
+"publishYear": "2009"}
 
-- **Login**
-
-Method: **POST**
-
-    Route: /auth/register
-
-example data
-{
-"email": "email@gmail.com",
-"password":"desiredPassword"
-}
-
-**Set this code in Postman to automatically add token for futher routes**
-
-Open Tests and paste this code 
-
-```sh
-const data = pm.response.json()  pm.globals.set("accessToken", data.token)
-```
-Open Authorization and set Type to 
-```sh
-Bearer Token 
-```
-
-2. Manipulate User
-
-- **Get User**
-
-Method: **GET**
-
-        Route: /user:userId
-
-
-- **Update User**
+- **Update Book**
 
 Method: **PUT**
 
-        Route: /user:userId
+ Route:  https://books-api-chi.vercel.app/api/books/:id
 
-example data {
-    "name": "updatedName"
-}
+It will update the whole book and return updated book.
 
-- **Logout User**
-
-Method: **GET**
-
-        Route: /user:userId
-
-
-- **Delete User**
+- **Delete Book**
 
 Method: **DELETE**
 
-        Route: /user:userId
+ Route:  https://books-api-chi.vercel.app/api/books/:id
+
+It will delete the whole book.
+
 
 ## SetUp/Installation
- Clone the repository using `git clone repository-link` and install dependencies using `npm install` command
+ Clone the repository using `git clone https://github.com/sridhar-geek/booksAPI ` 
+ and install dependencies using `npm install` command
 
-Use the sample env file to know the required the envirnomental varabiles for this project
+Create .env file and updates this varaibles with your own connection string.
 
-Create your own environemet varaibles
-
-- MongoDBConnection Url
-- JWT_SECRET 
-- RAZORPAY_KEY_ID
-- RAZORPAY_KEY_SECRET
+- MongoDBConnection Url (MONGOURI)
+- PORT
