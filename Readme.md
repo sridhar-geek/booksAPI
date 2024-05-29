@@ -9,7 +9,7 @@
 To test the api routes in Postman, use can use this endpoints
 
 ```sh
-Base Url: https://books-api-chi.vercel.app/api/books
+Base Url: https://books-api-chi.vercel.app
 ```
 
 **For all requests set the Content-Type in header as application/json and send data in json format**
